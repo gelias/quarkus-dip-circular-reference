@@ -1,11 +1,11 @@
 package org.acme.getting.started;
 
-public abstract class AbstractResource {
+public abstract class AbstractResource<T extends MyEntity> {
 
-  protected final AbstractService<Version> versionService;
+  protected final AbstractService<T> versionService;
    
   public AbstractResource() {
     versionService = getService();
   }
-  protected abstract VersionService getService();
+  protected abstract AbstractService<T> getService();
 }

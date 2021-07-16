@@ -7,7 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/version")
-public class VersionResource extends AbstractResource{
+public class VersionResource extends AbstractResource<Version>{
 
     @Inject
     private VersionService versionService;
@@ -27,7 +27,9 @@ public class VersionResource extends AbstractResource{
     }
 
     @Override
-    protected VersionService getService() {
+    protected AbstractService<Version> getService() {
       return this.versionService;
     }
+
+
 }
