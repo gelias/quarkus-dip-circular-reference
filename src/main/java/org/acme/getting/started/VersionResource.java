@@ -7,22 +7,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/version")
-public class GreetingResource {
+public class VersionResource extends AbstractResource{
 
-//    @Inject
-    public final VersionService versionService;
-    
     @Inject
-    public GreetingResource(VersionService versionService) {
-      this.versionService = versionService;
-      // TODO Auto-generated constructor stub
-    }
-  
+    private VersionService versionService;
+    
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/")
     public String hello() {
-        return versionService.version();
+        return this.versionService.version();
     }
     
     @GET
@@ -30,5 +24,10 @@ public class GreetingResource {
     @Path("/hi")
     public String hi() {
         return "hello";
+    }
+
+    @Override
+    protected VersionService getService() {
+      return this.versionService;
     }
 }

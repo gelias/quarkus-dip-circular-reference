@@ -7,9 +7,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class VersionService {
+public class VersionService extends AbstractService<Version>{
 
-//  @Inject
   private final VersionTranslator versionTranslator;
   
   @Inject
